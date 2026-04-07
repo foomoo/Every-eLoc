@@ -1,0 +1,10 @@
+runtime: python39
+instance_class: F1
+entrypoint: gunicorn -k uvicorn.workers.UvicornWorker main:app
+
+handlers:
+  - url: /.*
+    script: auto
+
+automatic_scaling:
+  max_instances: 5
